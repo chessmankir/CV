@@ -1,0 +1,111 @@
+.contact-form {
+  margin-top: 28px;
+  display: grid;
+  gap: 22px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: 16px;
+  border: 1px solid #343434;
+  background: #1f1f21;
+  color: #fff;
+  font: inherit;
+  outline: none;
+  padding-bottom: 48px;
+}
+
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #facc15;
+}
+
+.contact-form button.submit-btn {
+  justify-self: end;
+  padding: 16px 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 16px;
+  background: #facc15;
+  color: #111;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+.textarea-wrapper {
+  position: relative;
+}
+
+.contact-form textarea {
+  min-height: 180px;
+
+  padding: 20px;
+  padding-bottom: 52px;
+
+  resize: vertical;
+}
+
+.ai-button {
+  color: #838383;
+  position: absolute;
+
+  right: 18px;
+  bottom: 18px;
+
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  border: 0;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.ai-button svg {
+  width: 14px;
+  height: 14px;
+
+  opacity: 0.6;
+}
+
+.ai-button:hover {
+  color: rgba(250,204,21,0.9);
+}
+
+.ai-button:hover svg {
+  opacity: 1;
+}

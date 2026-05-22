@@ -1,23 +1,18 @@
 import type { ReactNode } from "react";
 import { Sidebar } from "@/src/components/Sidebar/Sidebar";
-import Link from "next/link";
+import {TopMenu} from "@/src/components/Menu/TopMenu";
 
 type LayoutCvProps = {
     children: ReactNode;
 };
 
 export function LayoutCv({ children }: LayoutCvProps) {
+
     return (
         <main className="portfolio">
             <Sidebar />
-
             <section className="content">
-                <nav className="nav">
-                    <Link href="/">О себе</Link>
-                    <a href="/experience">Опыт</a>
-                   {/* <a href="#stack">Стек</a>*/}
-                    <a href="/contacts">Контакты</a>
-                </nav>
+                <TopMenu />
                 <div className="page_cv">{children}</div>
             </section>
         </main>

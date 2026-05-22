@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import {LayoutCv} from "@/src/components/Layout/LayoutCv";
+import "@/src/scss/home.scss";
 
 const manrope = Manrope({
   subsets: ["latin", "cyrillic"],

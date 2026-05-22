@@ -43,7 +43,7 @@ export function Sidebar() {
 
                     <a
                         className="social"
-                        href="https://t.me/yourtelegram"
+                        href="https://t.me/chessmankir"
                         target="_blank"
                     >
                         <Send size={18} />
