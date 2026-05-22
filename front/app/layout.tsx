@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Outfit } from "next/font/google";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
+import {LayoutCv} from "@/src/components/Layout/LayoutCv";
 
-const outfit = Outfit({
+const manrope = Manrope({
   subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-outfit",
+  variable: "--font-main",
 });
-
-export const metadata: Metadata = {
-  title: "Кир | Frontend Developer",
-  description: "Portfolio",
-};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,23 +19,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+  title: "Кир | Frontend Developer",
+  description: "Portfolio",
+};
+
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-    <body
-        className={`min-h-full flex flex-col ${outfit.variable}`}
-    >
-    {children}
-    </body>
-    </html>
+      <html
+          lang="ru"
+          className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} h-full antialiased`}
+      >
+      <body className="min-h-full flex flex-col">
+        <LayoutCv>
+            {children}
+        </LayoutCv>
+      </body>
+      </html>
   );
 }
-
-
