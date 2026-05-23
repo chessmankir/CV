@@ -52,9 +52,9 @@ export function ContactForm() {
                     onChange={(e) => setComment(e.target.value)}
                 />
 
-                <div className="comment-counter">
+               {/* <div className="comment-counter">
                     {comment.length}/{COMMENT_LIMIT}
-                </div>
+                </div>*/}
 
                 <button
                     type="button"
