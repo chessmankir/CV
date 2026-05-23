@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Кир | Frontend Developer",
+  title: "Кир | Frontend Developer2",
   description: "Portfolio",
 };
 
