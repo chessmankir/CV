@@ -120,3 +120,26 @@
   z-index: 5;
   pointer-events: auto;
 }
+
+.textarea-wrapper {
+  position: relative;
+}
+
+.comment-counter {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.contact-form textarea {
+  padding-bottom: 52px;
+}
+
+.ai-button {
+  right: 18px;
+  bottom: 18px;
+}
