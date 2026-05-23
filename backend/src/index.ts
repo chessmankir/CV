@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import express from "express"
 import cors from "cors";
 import commentRouter from "./modules/Comment/comment.router";
+import mailRouter from "./modules/Mail/mail.router";
 
 dotenv.config();
 const app = express();
@@ -13,6 +14,7 @@ app.get("/", (_req, res) => {
     res.json({ message: "CV backend is running" });
 });
 app.use("/api/ai/comment", commentRouter);
+app.use("/api/mail", mailRouter);
 
 const PORT = process.env.PORT || 4005;
 

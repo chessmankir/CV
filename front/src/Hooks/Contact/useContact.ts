@@ -28,7 +28,6 @@ export function useContact() {
                 })
             });
             const data = await response.json();
-            console.log(data);
             if(data.ok){
                 toast.success("Выполенно успешно", {
                     description: "Сообщение обновлено"
@@ -46,17 +45,35 @@ export function useContact() {
     };
 
     const handleSendEmail = async () => {
-       /* console.log("submit без перезагрузки");
-        console.log(name, email, comment, phone);
-
         const backend = process.env.NEXT_PUBLIC_BACKEND_API;
-        console.log(backend);
         try {
-            console.log()
+            const response = await fetch(`${backend}/api/mail`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    comment: comment,
+                })
+            });
+            const data = await response.json();
+            if(data.ok){
+                toast.success("Сообщение отправлено", {
+                    description: "Владелец сайта получил письмо"
+                });
+            }
+            else{
+                toast.error("Ошибка отправки", {
+                    description: data.message
+                });
+            }
         }
         catch (error) {
 
-        }*/
+        }
     };
 
     return { aiLoading, handleAiAdapt, handleSendEmail };

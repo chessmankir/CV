@@ -43,10 +43,6 @@ export function ContactForm() {
                 </button>
             </div>
 
-           {/* <button type="button" className="submit-btn" onClick={() =>handleSendEmail()}>
-                <Send size={18}/>
-                Отправить
-            </button>*/}
             <button
                 type="button"
                 className="submit-btn"
