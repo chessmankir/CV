@@ -14,7 +14,7 @@ export function ContactForm() {
     const setPhone = useContactStore((state) => state.setPhone);
     const {aiLoading, handleAiAdapt, handleSendEmail} = useContact();
     return (
-        <form className="contact-form" onSubmit={handleSendEmail}>
+        <form className="contact-form"  >
             <div className="form-row">
                 <input type="text" value={name} onChange={(e)=> setName(e.target.value)} placeholder="Ваше имя"/>
                 <input type="text" value={email} onChange={(e)=> setEmail(e.target.value)} placeholder="Email"/>
@@ -43,7 +43,17 @@ export function ContactForm() {
                 </button>
             </div>
 
-            <button type="submit" className="submit-btn">
+           {/* <button type="button" className="submit-btn" onClick={() =>handleSendEmail()}>
+                <Send size={18}/>
+                Отправить
+            </button>*/}
+            <button
+                type="button"
+                className="submit-btn"
+                onClick={() => {
+                    handleSendEmail();
+                }}
+            >
                 <Send size={18}/>
                 Отправить
             </button>

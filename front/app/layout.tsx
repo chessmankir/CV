@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import {LayoutCv} from "@/src/components/Layout/LayoutCv";
 import "@/src/scss/home.scss";
+import { Toaster } from "sonner";
 
 const manrope = Manrope({
   subsets: ["latin", "cyrillic"],
@@ -39,6 +40,10 @@ export default function RootLayout({
         <LayoutCv>
             {children}
         </LayoutCv>
+        <Toaster
+            richColors
+            position="top-center"
+        />
       </body>
       </html>
   );

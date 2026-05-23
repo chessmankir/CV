@@ -109,3 +109,14 @@
 .ai-button:hover svg {
   opacity: 1;
 }
+
+.contact-form {
+  position: relative;
+  z-index: 2;
+}
+
+.submit-btn {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
