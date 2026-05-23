@@ -1,4 +1,5 @@
 import { ServicesType } from "@/src/types/ServicesType";
+import {AboutService} from "@/src/components/About/AboutService";
 
 type AboutServicesProps = {
     services: ServicesType[];
@@ -9,26 +10,9 @@ export function AboutServices({services}: AboutServicesProps) {
         <section className="block">
             <h2>Что я делаю</h2>
             <div className="cards">
-                {services.map((service) => {
-                    const Icon = service.icon;
-
+                {services.map((service, index) => {
                     return (
-                        <article
-                            className="card"
-                            key={service.title}
-                        >
-                            <div className="icon">
-                                <Icon
-                                    size={28}
-                                    strokeWidth={2.2}
-                                />
-                            </div>
-
-                            <div>
-                                <h3>{service.title}</h3>
-                                <p>{service.text}</p>
-                            </div>
-                        </article>
+                      <AboutService key={index} service={service}/>
                     );
                 })}
             </div>
