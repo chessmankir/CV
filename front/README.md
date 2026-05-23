@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Личное электронное Резюме
 
-## Getting Started
+Здесь можно посмотреть саму версию проекта:
 
-First, run the development server:
+http://89.125.25.205:3001/
+
+---
+
+# 🚀 Используемый стек
+
+## Frontend
+- Next.js
+- TypeScript
+- Shadcn UI (для оповещений)
+
+## Backend
+- Node.js
+- Express
+- Open AI
+- Nodemailer
+
+---
+
+# 📩 Форма обратной связи
+
+Контакты (форма) реализованы через стандартную форму и работают с API бекенда.
+
+Дополнительно:
+- Добавлены валидаторы на невалидные данные
+- К комментариям подключен Open AI:
+    - исправляет орфографические ошибки
+    - делает текст более вежливым
+
+---
+
+# ⚙️ Настройка проекта
+
+## Frontend
+
+Необходимо создать файл:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+/front/.env
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+И добавить переменные:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+NEXT_PUBLIC_BACKEND_API=http://localhost:4005
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Backend
 
-To learn more about Next.js, take a look at the following resources:
+Необходимо создать файл:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+/backend/.env
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+И добавить переменные:
 
-## Deploy on Vercel
+```env
+OPENROUTER_API_KEY=
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_USER=
+SMTP_PASS=
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+OWNER_EMAIL=
+```
+
+Необходимо указать:
+- свои ключи
+- почту для отправки
+- почту для получения копии сообщений
+
+---
+
+# 🖥️ Запуск проекта
+
+## Frontend
+
+```bash
+cd front
+npm install
+npm run dev
+```
+
+---
+
+## Backend
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+---
+
+# 🐳 Docker
+
+В проект добавлен Docker.
+
+Для запуска достаточно выполнить:
+
+```bash
+docker compose up -d --build
+```
+
+И предварительно установить необходимые переменные окружения.
+
+---
+
