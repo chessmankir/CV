@@ -33,7 +33,7 @@ export function useContact() {
                 toast.success("Выполенно успешно", {
                     description: "Сообщение обновлено"
                 });
-                setComment(data.comment);
+                setComment(data.comment.trim());
             }
             else{
                 toast.error("Ошибка отправки", {

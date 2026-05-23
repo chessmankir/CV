@@ -1,16 +1,14 @@
-import {openrouter} from "../../libs/ai";
+import {aiClient} from "../../libs/ai";
 
 export class CommentService {
     async updateComment(comment: string) {
-        console.log("updateComment2");
-        const completion  = await openrouter.chat.completions.create({
-            model:
-                "deepseek/deepseek-chat-v3-0324:free",
+        const completion = await aiClient.chat.completions.create({
+            model: "openrouter/free",
             messages: [
                 {
                     role: "system",
                     content:
-                        "Помоги сделать сообщение более профессиональным, дружелюбным и исправь орфографические ошибки. добавляй в конце \"с уважением\"",
+                        "Перепиши сообщение пользователя более профессионально и дружелюбно, исправь ошибки. Не меняй смысл. В конце добавь: «С уважением». Верни только готовый текст.",
                 },
                 {
                     role: "user",
@@ -18,7 +16,7 @@ export class CommentService {
                 },
             ],
         });
-        console.log(completion.choices[0].message);
-        return completion.choices[0].message.content
+
+        return completion.choices[0]?.message?.content;
     }
 }
