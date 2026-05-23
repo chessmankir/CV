@@ -1,9 +1,8 @@
 "use client";
 
-import { Send, Sparkles } from "lucide-react";
+import { Send, Sparkles, LoaderCircle } from "lucide-react";
 import { useContact } from "@/src/Hooks/Contact/useContact";
 import { useContactStore } from "@/src/Store/ContactStore";
-
 
 export function ContactForm() {
     const name = useContactStore((state) => state.name);
@@ -18,7 +17,7 @@ export function ContactForm() {
     const phone = useContactStore((state) => state.phone);
     const setPhone = useContactStore((state) => state.setPhone);
 
-    const { aiLoading, handleAiAdapt, handleSendEmail, COMMENT_LIMIT } = useContact();
+    const { aiLoading, handleAiAdapt, handleSendEmail, sendLoading, COMMENT_LIMIT } = useContact();
 
     return (
         <form className="contact-form">
@@ -75,9 +74,23 @@ export function ContactForm() {
                 type="button"
                 className="submit-btn"
                 onClick={handleSendEmail}
+                disabled={sendLoading}
             >
-                <Send size={18} />
-                Отправить
+                {sendLoading ? (
+                    <>
+                        <LoaderCircle
+                            size={18}
+                            className="spinner"
+                        />
+
+                        Отправка...
+                    </>
+                ) : (
+                    <>
+                        <Send size={18} />
+                        Отправить
+                    </>
+                )}
             </button>
         </form>
     );

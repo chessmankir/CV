@@ -18,6 +18,7 @@ export function useContact() {
     const comment = useContactStore((state) => state.comment);
     const setComment = useContactStore((state) => state.setComment);
     const phone = useContactStore((state) => state.phone);
+    const [sendLoading, setSendLoading] = useState(false);
 
     const validateContactForm = () => {
         if (!name.trim()) {
@@ -102,6 +103,8 @@ export function useContact() {
         const backend = process.env.NEXT_PUBLIC_BACKEND_API;
 
         try {
+            setSendLoading(true);
+
             const response = await fetch(`${backend}/api/mail`, {
                 method: "POST",
                 headers: {
@@ -130,6 +133,8 @@ export function useContact() {
             toast.error("Ошибка отправки", {
                 description: "Сервер временно недоступен",
             });
+        } finally {
+            setSendLoading(false);
         }
     };
 
@@ -137,6 +142,7 @@ export function useContact() {
         aiLoading,
         handleAiAdapt,
         handleSendEmail,
+        sendLoading,
         COMMENT_LIMIT
     };
 }
